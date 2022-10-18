@@ -1,6 +1,6 @@
 # Profanity Filter
 
-A module which to filter profanicity.
+A module which filters profanicity. It provides a custom hook which returns a function #isProfanicityPresent# of type Promise<boolean> based on given text input.
 
 ## How to use the filter
 
