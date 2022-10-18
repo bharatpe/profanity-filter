@@ -1,5 +1,4 @@
-declare const useProfanicityFilter: () => {
+export declare const useProfanicityFilter: () => {
     isProfancityPresent: (text: string, callback?: ((arg: boolean) => void) | undefined) => Promise<boolean>;
 };
-
-export { useProfanicityFilter };
+//# sourceMappingURL=useProfanicityFilter.d.ts.map
