@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useProfanicityFilter } from 'module-boilerplate';
+import { useProfanityFilter } from 'module-boilerplate';
 import { useEffect, useState } from 'react';
 
 function App() {
   const [data, setData] = useState(0);
-  const profanicity = useProfanicityFilter();
+  const profanity = useProfanityFilter();
 
   useEffect(() => {
-    (async () => console.log(await profanicity.isProfancityPresent('abbo'), await profanicity.isProfancityPresent('no-abbo')))();
+    (async () => console.log(await profanity.isProfanityPresent('abbo'), await profanity.isProfanityPresent('no-abbo')))();
   },[]);
 
   return (

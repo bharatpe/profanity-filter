@@ -1,1 +1,1 @@
-export { useProfanicityFilter } from './useProfanicityFilter';
+export { useProfanityFilter } from './useProfanityFilter';
