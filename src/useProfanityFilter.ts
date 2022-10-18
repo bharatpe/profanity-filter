@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { fetchFoulWords } from './utils/Utils';
 const data = (async () => await fetchFoulWords())();
-export const useProfanicityFilter = () => {
-  const isProfanicityPresent = useCallback(
+export const useProfanityFilter = () => {
+  const isProfanityPresent = useCallback(
     async (
       text: string,
       callback?: (arg: boolean) => void
@@ -31,5 +31,5 @@ export const useProfanicityFilter = () => {
     []
   );
 
-  return { isProfancityPresent: isProfanicityPresent };
+  return { isProfanityPresent: isProfanityPresent };
 };

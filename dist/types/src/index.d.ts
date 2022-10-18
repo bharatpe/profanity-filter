@@ -1,2 +1,2 @@
-export { useProfanicityFilter } from './useProfanicityFilter';
+export { useProfanityFilter } from './useProfanityFilter';
 //# sourceMappingURL=index.d.ts.map
