@@ -1,23 +1,22 @@
-import { useEffect } from 'react';
-
-import { add, multiply, subtract } from 'module-boilerplate';
-
 import logo from './logo.svg';
 import './App.css';
 
+import { useProfanicityFilter } from 'module-boilerplate';
+import { useEffect, useState } from 'react';
+
 function App() {
+  const [data, setData] = useState(0);
+  const profanicity = useProfanicityFilter();
 
   useEffect(() => {
-    console.log(add(1, 2), multiply(1, 2), subtract(2, 1));
-  }, []);
+    (async () => console.log(await profanicity.isProfancityPresent('abbo'), await profanicity.isProfancityPresent('no-abbo')))();
+  },[]);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <button onClick={() => setData(() => data + 1)}>{`Clicked: ${data} times`}</button>
         <a
           className="App-link"
           href="https://reactjs.org"

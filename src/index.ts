@@ -1,1 +1,1 @@
-export * from './math';
+export { useProfanicityFilter } from './useProfanicityFilter';

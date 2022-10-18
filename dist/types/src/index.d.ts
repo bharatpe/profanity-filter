@@ -1,2 +1,2 @@
-export * from './math';
+export { useProfanicityFilter } from './useProfanicityFilter';
 //# sourceMappingURL=index.d.ts.map
