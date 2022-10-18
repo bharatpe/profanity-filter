@@ -1,9 +1,9 @@
-# Module Boilerplate
+# Profanity Filter
 
-A boilerplate to start library modules in seconds. Which comes with default structure including basic setup of rollup and babel.
+A module which to filter profanicity.
 
 ## Contributors
-Here (https://github.com/bharatpe/module-boilerplate/graphs/contributors)
+Here (https://github.com/bharatpe/profanity-filter/graphs/contributors)
 
 ## Maintainers
 Frontend TM
