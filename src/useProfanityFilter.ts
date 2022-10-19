@@ -5,11 +5,10 @@ export const useProfanityFilter = () => {
   const isProfanityPresent = useCallback(
     async (
       text: string,
-      callback?: (arg: boolean) => void
     ): Promise<boolean> => {
       const foulWordObject: Record<string, any> = await data;
       if (!foulWordObject || !foulWordObject?.foul_words)
-        callback && callback(false);
+        return false;
       for (const key in foulWordObject?.foul_words) {
         const wordList: Array<string> = foulWordObject?.foul_words[key] || [];
         for (const wordIndex in wordList) {
@@ -19,17 +18,15 @@ export const useProfanityFilter = () => {
               textArray[idx].trim() == wordList[wordIndex] ||
               textArray[idx] == wordList[wordIndex]
             ) {
-              callback && callback(true);
               return true;
             }
           }
         }
       }
-      callback && callback(false);
       return false;
     },
     []
   );
 
-  return { isProfanityPresent: isProfanityPresent };
+  return { isProfanityPresent };
 };
