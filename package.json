@@ -1,5 +1,5 @@
 {
-  "name": "module-boilerplate",
+  "name": "profanity-filter",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -17,11 +17,11 @@
     "build": "yarn pre:build && rollup -c",
     "watch": "rollup -cw",
     "test": "jest",
-    "clean-build": "rimraf ./test-react-app/node_modules/module-boilerplate",
-    "push-build": "cp -R ./dist ./test-react-app/node_modules/module-boilerplate",
+    "clean-build": "rimraf ./test-react-app/node_modules/profanity-filter",
+    "push-build": "cp -R ./dist ./test-react-app/node_modules/profanity-filter",
     "test-build": "yarn build && yarn clean-build && yarn push-build",
-    "clean-build-ts": "rimraf ./test-react-app-ts/node_modules/module-boilerplate",
-    "push-build-ts": "cp -R ./dist ./test-react-app-ts/node_modules/module-boilerplate",
+    "clean-build-ts": "rimraf ./test-react-app-ts/node_modules/profanity-filter",
+    "push-build-ts": "cp -R ./dist ./test-react-app-ts/node_modules/profanity-filter",
     "test-build-ts": "yarn build && yarn clean-build-ts && yarn push-build-ts",
     "test-builds": "yarn build && yarn clean-build && yarn push-build && yarn clean-build-ts && yarn push-build-ts",
     "lint": "eslint --config .eslintrc $PWD/'src/**/*.{ts,tsx}'",
@@ -46,14 +46,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bharatpe/module-boilerplate.git"
+    "url": "git+https://github.com/bharatpe/profanity-filter.git"
   },
   "author": "WebChapter, BharatPe",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bharatpe/module-boilerplate/issues"
+    "url": "https://github.com/bharatpe/profanity-filter/issues"
   },
-  "homepage": "https://github.com/bharatpe/module-boilerplate#readme",
+  "homepage": "https://github.com/bharatpe/profanity-filter#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
