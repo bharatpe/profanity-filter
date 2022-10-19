@@ -1,16 +1,24 @@
 
 import { useEffect } from 'react';
 
-import { add, multiply, subtract } from 'module-boilerplate';
+import { useProfanityFilter } from 'profanity-filter';
+
+import Child from './Child';
 
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const { isProfanityPresent } = useProfanityFilter();
 
   useEffect(() => {
-    console.log(add(1, 2), multiply(1, ""), subtract(2, 1));
-  }, []);
+    (async () => {
+      let present = await isProfanityPresent('abbo');
+      console.log("abbo", present);
+      present = await isProfanityPresent('no-abbo')
+      console.log("no-abbo", present);
+    })();
+  }, [isProfanityPresent]);
 
   return (
     <div className="App">
@@ -27,6 +35,7 @@ function App() {
         >
           Learn React
         </a>
+        <Child />
       </header>
     </div>
   );
