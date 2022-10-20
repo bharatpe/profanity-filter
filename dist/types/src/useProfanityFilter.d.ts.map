@@ -1,1 +1,1 @@
-{"version":3,"file":"useProfanityFilter.d.ts","sourceRoot":"","sources":["../../../src/useProfanityFilter.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,kBAAkB;+BAGnB,MAAM,KACX,QAAQ,OAAO,CAAC;CAwBtB,CAAC"}
+{"version":3,"file":"useProfanityFilter.d.ts","sourceRoot":"","sources":["../../../src/useProfanityFilter.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,kBAAkB;gBAGK,QAAQ,IAAI,CAAC;+BAOrC,MAAM,KACX,OAAO;CAuBb,CAAC"}

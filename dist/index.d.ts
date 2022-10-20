@@ -1,5 +1,6 @@
 declare const useProfanityFilter: () => {
-    isProfanityPresent: (text: string) => Promise<boolean>;
+    init: () => Promise<void>;
+    isProfanityPresent: (text: string) => boolean;
 };
 
 export { useProfanityFilter };

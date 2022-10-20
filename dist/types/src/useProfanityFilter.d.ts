@@ -1,4 +1,5 @@
 export declare const useProfanityFilter: () => {
-    isProfanityPresent: (text: string) => Promise<boolean>;
+    init: () => Promise<void>;
+    isProfanityPresent: (text: string) => boolean;
 };
 //# sourceMappingURL=useProfanityFilter.d.ts.map
