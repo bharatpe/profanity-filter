@@ -9,13 +9,19 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState(0);
-  const { isProfanityPresent } = useProfanityFilter();
+  const { init, isProfanityPresent } = useProfanityFilter();
 
   useEffect(() => {
     (async () => {
-      let present = await isProfanityPresent("abbo");
+      await init();
+    })();
+  },[]);
+
+  useEffect(() => {
+    (() => {
+      let present = isProfanityPresent("abbo");
       console.log("abbo", present);
-      present = await isProfanityPresent("no-abbo");
+      present = isProfanityPresent("no-abbo");
       console.log("no-abbo", present);
     })();
   }, [isProfanityPresent]);

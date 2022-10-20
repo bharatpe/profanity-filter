@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import { useProfanityFilter } from "profanity-filter";
 
 function Child() {
-  const { isProfanityPresent } = useProfanityFilter();
+  const { init, isProfanityPresent } = useProfanityFilter();
 
   useEffect(() => {
-    (async () => {
-      let present = await isProfanityPresent("abuse");
+    (async () => await init())();
+    (() => {
+      let present = isProfanityPresent("abuse");
       console.log("abuse", present);
-      present = await isProfanityPresent("no-abuse");
+      present = isProfanityPresent("no-abuse");
       console.log("no-abuse", present);
     })();
   }, [isProfanityPresent]);

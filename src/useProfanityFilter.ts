@@ -1,12 +1,18 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { fetchFoulWords } from './utils/Utils';
 const data = (async () => await fetchFoulWords())();
 export const useProfanityFilter = () => {
-  const isProfanityPresent = useCallback(
-    async (
+  const [foulWordObject, setFoulWordObject] = useState<Record<string,any>>({});
+
+  const init = useCallback(async(): Promise<void> => {
+    if(Object.keys(foulWordObject).length === 0){
+      setFoulWordObject(await data);
+    }
+  },[]);
+
+  const isProfanityPresent = useCallback((
       text: string,
-    ): Promise<boolean> => {
-      const foulWordObject: Record<string, any> = await data;
+    ): boolean => {
       if (!foulWordObject || !foulWordObject?.foul_words)
         return false;
       for (const key in foulWordObject?.foul_words) {
@@ -25,8 +31,8 @@ export const useProfanityFilter = () => {
       }
       return false;
     },
-    []
+    [foulWordObject]
   );
 
-  return { isProfanityPresent };
+  return { init, isProfanityPresent };
 };
