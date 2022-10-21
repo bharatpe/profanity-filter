@@ -1,24 +1,44 @@
-import { useCallback, useState } from 'react';
-import { fetchFoulWords } from './utils/Utils';
+import { useCallback, useState } from "react";
+import { fetchFoulWords } from "./utils/Utils";
+
+/**
+ * @method: to fetch the foul words data only once
+ */
 const data = (async () => await fetchFoulWords())();
+
+/**
+ * stores the foul words object
+ */
+let foulWordsObject: Record<string, any> = {};
+
 export const useProfanityFilter = () => {
-  const [foulWordObject, setFoulWordObject] = useState<Record<string,any>>({});
+  const [dataLoaded, setDataLoaded] = useState<boolean>(
+    Object.keys(foulWordsObject).length !== 0
+  );
 
-  const init = useCallback(async(): Promise<void> => {
-    if(Object.keys(foulWordObject).length === 0){
-      setFoulWordObject(await data);
+  /**
+   * Init method to save foulWords data only once
+   */
+  const init = useCallback(async (): Promise<void> => {
+    if (Object.keys(foulWordsObject).length === 0) {
+      foulWordsObject = await data;
+      setDataLoaded(true);
     }
-  },[]);
+  }, []);
 
-  const isProfanityPresent = useCallback((
-      text: string,
-    ): boolean => {
-      if (!foulWordObject || !foulWordObject?.foul_words)
-        return false;
-      for (const key in foulWordObject?.foul_words) {
-        const wordList: Array<string> = foulWordObject?.foul_words[key] || [];
+  /**
+   * @method: validates the profanity of the given text
+   * @param: text
+   * @returns: boolean
+   */
+
+  const isProfanityPresent = useCallback(
+    (text: string): boolean => {
+      if (!foulWordsObject || !foulWordsObject?.foul_words) return false;
+      for (const key in foulWordsObject?.foul_words) {
+        const wordList: Array<string> = foulWordsObject?.foul_words[key] || [];
         for (const wordIndex in wordList) {
-          const textArray = text.toLocaleLowerCase().split(' ');
+          const textArray = text.toLocaleLowerCase().split(" ");
           for (let idx = 0; idx < textArray.length; idx++) {
             if (
               textArray[idx].trim() == wordList[wordIndex] ||
@@ -31,7 +51,7 @@ export const useProfanityFilter = () => {
       }
       return false;
     },
-    [foulWordObject]
+    [foulWordsObject]
   );
 
   return { init, isProfanityPresent };

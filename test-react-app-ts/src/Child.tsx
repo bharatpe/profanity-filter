@@ -3,10 +3,9 @@ import { useEffect } from "react";
 import { useProfanityFilter } from "profanity-filter";
 
 function Child() {
-  const { init, isProfanityPresent } = useProfanityFilter();
+  const { isProfanityPresent } = useProfanityFilter();
 
   useEffect(() => {
-    (async () => await init())();
     (() => {
       let present = isProfanityPresent("abuse");
       console.log("abuse", present);
